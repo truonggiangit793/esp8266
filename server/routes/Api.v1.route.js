@@ -7,9 +7,9 @@ apiRoute.get("/", (req, res, next) => {
   res.json({ status: true, message: "Welcome to API" });
 });
 
-apiRoute.post("/post-data", (req, res, next) => {
-  const temperatureC = req.body.temperatureC || null;
-  const humidity = req.body.humidity || null;
+apiRoute.get("/new-data", (req, res, next) => {
+  const temperatureC = req.query.temperatureC || null;
+  const humidity = req.query.humidity || null;
 
   if (!temperatureC || !humidity) return res.json({ status: false, message: "No data to insert" });
 
